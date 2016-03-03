@@ -1,0 +1,17 @@
+<body data-sly-use.applicationRoot="com.citytechinc.aem.spa.angular.api.models.application.SinglePageApplication" ng-app="${applicationRoot.applicationName}" data-sly-attribute.ng-cloak="${isSPAAngularAemAppMode}">
+
+    <sly data-sly-test="${isSPAAngularAemAppMode}">
+        <ui-view></ui-view>
+
+        <sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"
+             data-sly-call="${clientLib.js @ categories='spa.angular.angular'}" />
+        <sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"
+             data-sly-call="${clientLib.js @ categories='spa.angular.all'}" />
+        <sly data-sly-include="js_application_clientlibs.html" />
+        <script src="${currentPage.name}.angular-app-module.js"></script>
+    </sly>
+    <sly data-sly-test="${!isSPAAngularAemAppMode}">
+        <sly data-sly-include="root_author.html" />
+    </sly>
+
+</body>

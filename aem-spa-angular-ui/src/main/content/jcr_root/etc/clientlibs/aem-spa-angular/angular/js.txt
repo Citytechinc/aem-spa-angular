@@ -1,0 +1,3 @@
+#base=js
+angular.js
+angular-ui-router.js

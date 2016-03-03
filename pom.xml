@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <groupId>com.citytechinc.aem.bedrock</groupId>
+        <artifactId>bedrock</artifactId>
+        <version>4.0.5</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.citytechinc.aem.spa.angular</groupId>
+    <artifactId>aem-spa-angular</artifactId>
+    <packaging>pom</packaging>
+    <version>0.1.0-SNAPSHOT</version>
+    <name>AEM Single Page Application Framework for Angular AEM Website</name>
+
+    <modules>
+        <module>aem-spa-angular-api</module>
+        <module>aem-spa-angular-core</module>
+        <module>aem-spa-angular-ui</module>
+    </modules>
+
+    <repositories>
+        <repository>
+            <id>citytech-public</id>
+            <url>http://nexus.citytech.ctmsp.com/content/groups/public</url>
+        </repository>
+        <repository>
+            <id>citytech-private</id>
+            <url>http://nexus.citytech.ctmsp.com/content/groups/CITYTECH-Private/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>citytech-public</id>
+            <url>http://nexus.citytech.ctmsp.com/content/groups/public</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>citytech-private</id>
+            <url>http://nexus.citytech.ctmsp.com/content/groups/CITYTECH-Private/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <properties>
+        <core.artifactId>aem-spa-angular-core</core.artifactId>
+
+        <!-- versions -->
+        <bedrock.version>4.0.5</bedrock.version>
+        <component.plugin.version>4.0.0</component.plugin.version>
+
+        <!-- defaults -->
+        <package.skip>true</package.skip>
+        <osgi.bundle.status.skip>true</osgi.bundle.status.skip>
+        <aem.username>admin</aem.username>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <activation>
+                <property>
+                    <name>local</name>
+                </property>
+            </activation>
+            <properties>
+                <package.skip>false</package.skip>
+                <osgi.bundle.status.skip>false</osgi.bundle.status.skip>
+                <aem.host.author>localhost</aem.host.author>
+                <aem.host.publish>localhost</aem.host.publish>
+                <aem.port.author>4502</aem.port.author>
+                <aem.port.publish>4503</aem.port.publish>
+                <aem.username.author>admin</aem.username.author>
+                <aem.username.publish>admin</aem.username.publish>
+                <aem.password.author>admin</aem.password.author>
+                <aem.password.publish>admin</aem.password.publish>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>1.3.1</version>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.citytechinc.aem.bedrock</groupId>
+                <artifactId>bedrock-core</artifactId>
+                <version>${bedrock.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.citytechinc.aem.bedrock</groupId>
+                <artifactId>bedrock-api</artifactId>
+                <version>${bedrock.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.citytechinc.aem.bedrock</groupId>
+                <artifactId>bedrock-models</artifactId>
+                <version>${bedrock.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.citytechinc.aem.bedrock</groupId>
+                <artifactId>bedrock-ui</artifactId>
+                <version>${bedrock.version}</version>
+                <type>zip</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

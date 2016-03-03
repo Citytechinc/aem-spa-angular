@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/aem-spa-angular" />
+    <filter root="/etc/clientlibs/aem-spa-angular"/>
+    <filter root="/etc/designs/aem-spa-angular">
+        <exclude pattern="/etc/designs/aem-spa-angular/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/etc/packages/bedrock/bedrock-ui-${bedrock.version}.zip"/>
+</workspaceFilter>

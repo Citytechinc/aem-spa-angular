@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Panel"
+          title="Single Page Application">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <initialState
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Default State"
+                    fieldDescription="Indicates the state the application should move to in cases where a routing is attempted to a invalid state.  This will also be the initial state of the application unless otherwise established"
+                    name="./initialState"
+                    xtype="pathfield"/>
+            <applicationName
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Application Module Name"
+                    fieldDescription="The name of the Angular Application Module for this application.  Defaults to AngularApplication"
+                    name="./ionicApplicationName"
+                    xtype="textfield"/>
+        </items>
+</jcr:root>
