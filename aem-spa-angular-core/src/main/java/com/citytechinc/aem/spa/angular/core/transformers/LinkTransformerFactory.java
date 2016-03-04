@@ -8,7 +8,7 @@ import org.apache.sling.rewriter.Transformer;
 import org.apache.sling.rewriter.TransformerFactory;
 
 @Component(
-        label = "Ionic AEM Apps Link Transformer Factory",
+        label = "AEM Single Page Angular Apps Link Transformer Factory",
         description = "Transforms a tag hrefs into fragment references when in Preview and Publish.",
         metatype = true)
 @Service

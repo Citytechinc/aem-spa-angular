@@ -39,14 +39,14 @@ public class DefaultSinglePageApplication implements SinglePageApplication {
         this.rootPage = rootPage;
     }
 
-    public String getInitialStateUrl() throws InvalidApplicationConfigurationException {
-        Optional<String> initialStateOptional = rootPage.get("initialState", String.class);
+    public String getDefaultStateUrl() throws InvalidApplicationConfigurationException {
+        Optional<String> defaultStateOptional = rootPage.get("defaultState", String.class);
 
-        if (initialStateOptional.isPresent() && initialStateOptional.get().startsWith(rootPage.getPath())) {
-            return initialStateOptional.get().substring(rootPage.getPath().length());
+        if (defaultStateOptional.isPresent() && defaultStateOptional.get().startsWith(rootPage.getPath())) {
+            return defaultStateOptional.get().substring(rootPage.getPath().length());
         }
 
-        throw new InvalidApplicationConfigurationException("initialState is unconfigured for the Application Root");
+        throw new InvalidApplicationConfigurationException("defaultState is unconfigured for the Single Page Application");
     }
 
     public String getSanatizedControllerName() {

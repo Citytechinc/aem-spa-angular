@@ -10,7 +10,7 @@ public interface SinglePageApplication {
     String RESOURCE_TYPE = "aem-spa-angular/components/page/single-page-application";
     String ANGULAR_REQUIRED_MODULES_KEY = "requiredAngularModules";
 
-    String getInitialStateUrl() throws InvalidApplicationConfigurationException;
+    String getDefaultStateUrl() throws InvalidApplicationConfigurationException;
 
     String getSanatizedControllerName();
 
