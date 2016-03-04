@@ -1,1 +1,17 @@
-<h2 data-sly-use.applicationRoot="com.citytechinc.aem.spa.angular.api.models.application.SinglePageApplication">${applicationRoot.applicationName} Root</h2>
+<div data-sly-use.applicationRoot="com.citytechinc.aem.spa.angular.api.models.application.SinglePageApplication" class="authoring-instructions">
+    <h1>${applicationRoot.applicationName}</h1>
+    <p data-sly-test="${currentPage.description}">${currentPage.description}</p>
+    <dl>
+        <dt>Default State</dt>
+        <dd data-sly-test="${applicationRoot.defaultStateUrl}">${applicationRoot.defaultStateUrl}</dd>
+        <dd data-sly-test="${!applicationRoot.defaultStateUrl}" class="authoring-error">Error - default state configuration missing</dd>
+        <dt>Required Angular Modules</dt>
+        <dd>
+            <ul>
+                <li data-sly-repeat.currentModule="${applicationRoot.requiredAngularModules}">
+                    ${currentModule}
+                </li>
+            </ul>
+        </dd>
+    </dl>
+</div>
