@@ -130,7 +130,7 @@
                 </executions>
                 <configuration>
                     <componentPathBase>jcr_root/apps/aem-spa-angular/components</componentPathBase>
-                    <defaultComponentGroup>AEM Single Page Application Framework for Angular</defaultComponentGroup>
+                    <defaultComponentGroup>Angular SPA</defaultComponentGroup>
                     <transformerName>lower-case</transformerName>
                 </configuration>
             </plugin>
