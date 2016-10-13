@@ -19,8 +19,13 @@ public class ParentStateDataSource extends AbstractOptionsProviderServlet {
     public static final String RESOURCE_TYPE = "aem-spa-angular/components/page/single-page-application-state/parentstatedatasource";
 
     @Override
-    protected Optional<String> getOptionsRoot(ComponentServletRequest request){
-       return null;
+    protected Optional<String> getOptionsRoot(ComponentServletRequest componentServletRequest){
+        PageDecorator currentPage = componentServletRequest.getResourceResolver().adaptTo(PageManagerDecorator.class).getContainingPage(componentServletRequest.getSlingRequest().getRequestPathInfo().getSuffix());
+        PageDecorator parent = currentPage.getParent();
+        Option optionRoot = new Option(parent.getPath(),parent.getTitle());
+//        return Optional.fromNullable(currentPage.getParent().getPath());
+//        return Optional.fromNullable(optionRoot);
+        return Optional.fromNullable(null);
     }
 
     @Override
@@ -42,6 +47,7 @@ public class ParentStateDataSource extends AbstractOptionsProviderServlet {
                 }
 
                 parentStateOptional = parentStateOptional.get().getDirectParentState();
+
             }
         }
 
